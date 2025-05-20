@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido Secreto</title>
+    <style>
+        body {
+            background-color: rgb(241, 179, 190);
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-image: url('img/caixa-de-entrada.png');
+            /* imagem da caixinha fechada */
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pedido {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .botoes {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button.resp {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sim {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .nao {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .pensar {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        /* Responsivo para celulares menores */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .box {
+                width: 280px;
+                height: 280px;
+            }
+
+            .botoes {
+                max-width: 280px;
+                gap: 15px;
+            }
+
+            button.resp {
+                font-size: 1.1em;
+                padding: 12px 16px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Clique na caixinha 👇</h1>
+    <div class="box" onclick="mostrarPedido(this)"></div>
+
+    <div class="pedido" id="pedido">
+        <h1>Quer namorar comigo?</h1>
+        <div class="botoes">
+            <button class="resp sim" onclick="alert('Sabia que você ia dizer sim 😎')">Sim</button>
+            <button class="resp pensar" onclick="alert('Ok, mas já tô contando como um quase sim kkk')">Vou
+                pensar...</button>
+            <button class="resp nao" onclick="alert('ok, triste isso vou superar 😅')">Não</button>
+        </div>
+    </div>
+
+    <script>
+        function mostrarPedido(box) {
+            box.style.backgroundImage = "url('img/caixa-do-anel.png')"; // imagem da caixinha aberta
+            document.getElementById('pedido').style.display = 'block';
+            document.querySelector('h1').style.display = 'none'; // esconde o "Clique na caixinha 👇"
+        }
+    </script>
+</body>
+
+</html>
